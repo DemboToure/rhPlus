@@ -1,0 +1,39 @@
+{
+  "name": "Poste",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombreRequis",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "employe",
+      "otherEntityRelationshipName": "poste",
+      "relationshipName": "employes"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "serviceEntreprise",
+      "otherEntityRelationshipName": "postes",
+      "relationshipName": "serviceEntreprise",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304102042",
+  "entityTableName": "poste",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

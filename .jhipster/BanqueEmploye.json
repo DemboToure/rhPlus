@@ -1,0 +1,65 @@
+{
+  "name": "BanqueEmploye",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "numeroCompte",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "codeBanque",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "codeGuichet",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cleRib",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pdfDomiciliation",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "employe",
+      "otherEntityRelationshipName": "compteBanquaire",
+      "relationshipName": "employe",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "banque",
+      "otherEntityRelationshipName": "compteEmployes",
+      "relationshipName": "banque",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304101742",
+  "entityTableName": "banque_employe",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

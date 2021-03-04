@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contrat">
+            <h2><span>Contrat</span> {{ contrat.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date Debut</span></dt>
+                <dd>
+                    <span>{{ contrat.dateDebut }}</span>
+                </dd>
+                <dt><span>Date Fin</span></dt>
+                <dd>
+                    <span>{{ contrat.dateFin }}</span>
+                </dd>
+                <dt><span>Salaire</span></dt>
+                <dd>
+                    <span>{{ contrat.salaire }}</span>
+                </dd>
+                <dt><span>Document</span></dt>
+                <dd>
+                    <span>{{ contrat.document }}</span>
+                </dd>
+                <dt><span>Employe</span></dt>
+                <dd>
+                    <div *ngIf="contrat.employe">
+                        <a [routerLink]="['/employe', contrat.employe?.id, 'view']">{{ contrat.employe?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contrat', contrat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

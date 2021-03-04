@@ -1,0 +1,152 @@
+{
+  "name": "Employe",
+  "fields": [
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "dateNaissance",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "lieuNaissance",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "cni",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "profession",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroCaisseSecurite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroIpres",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "matricule",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomPere",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomMere",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomMere",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "situationMatrimoniale",
+      "fieldType": "SituationMatrimoniale",
+      "fieldValues": "MARIER,CELIBATAIRE"
+    },
+    {
+      "fieldName": "sexe",
+      "fieldType": "Sexe",
+      "fieldValues": "FEMME,HOMME"
+    },
+    {
+      "fieldName": "trimf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEmbauche",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "nationalite",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "banqueEmploye",
+      "otherEntityRelationshipName": "employe",
+      "relationshipName": "compteBanquaire",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contrat",
+      "otherEntityRelationshipName": "employe",
+      "relationshipName": "contrats"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "enfant",
+      "otherEntityRelationshipName": "employe",
+      "relationshipName": "enfants"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "epoux",
+      "otherEntityRelationshipName": "employe",
+      "relationshipName": "epouxs"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "societe",
+      "otherEntityRelationshipName": "employes",
+      "relationshipName": "societe",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "poste",
+      "otherEntityRelationshipName": "employes",
+      "relationshipName": "poste",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304101342",
+  "javadoc": "The Employe entity.",
+  "entityTableName": "employe",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

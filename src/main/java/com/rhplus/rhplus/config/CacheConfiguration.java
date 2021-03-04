@@ -47,6 +47,23 @@ public class CacheConfiguration {
             createCache(cm, com.rhplus.rhplus.domain.User.class.getName());
             createCache(cm, com.rhplus.rhplus.domain.Authority.class.getName());
             createCache(cm, com.rhplus.rhplus.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.rhplus.rhplus.domain.AppConfiguration.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Societe.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Societe.class.getName() + ".employes");
+            createCache(cm, com.rhplus.rhplus.domain.Employe.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Employe.class.getName() + ".contrats");
+            createCache(cm, com.rhplus.rhplus.domain.Employe.class.getName() + ".enfants");
+            createCache(cm, com.rhplus.rhplus.domain.Employe.class.getName() + ".epouxs");
+            createCache(cm, com.rhplus.rhplus.domain.Enfant.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Epoux.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Banque.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Banque.class.getName() + ".compteEmployes");
+            createCache(cm, com.rhplus.rhplus.domain.BanqueEmploye.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Contrat.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.ServiceEntreprise.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.ServiceEntreprise.class.getName() + ".postes");
+            createCache(cm, com.rhplus.rhplus.domain.Poste.class.getName());
+            createCache(cm, com.rhplus.rhplus.domain.Poste.class.getName() + ".employes");
             // jhipster-needle-ehcache-add-entry
         };
     }

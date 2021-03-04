@@ -1,0 +1,206 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-employe-heading">Create or edit a Employe</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                    <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenom')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                    <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nom')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateNaissance">Date Naissance</label>
+                    <div class="input-group">
+                        <input id="field_dateNaissance" type="text" class="form-control" name="dateNaissance" ngbDatepicker #dateNaissanceDp="ngbDatepicker" formControlName="dateNaissance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateNaissance')!.invalid && (editForm.get('dateNaissance')!.dirty || editForm.get('dateNaissance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateNaissance')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lieuNaissance">Lieu Naissance</label>
+                    <input type="text" class="form-control" name="lieuNaissance" id="field_lieuNaissance"
+                           formControlName="lieuNaissance"/>
+                    <div *ngIf="editForm.get('lieuNaissance')!.invalid && (editForm.get('lieuNaissance')!.dirty || editForm.get('lieuNaissance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lieuNaissance')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cni">Cni</label>
+                    <input type="text" class="form-control" name="cni" id="field_cni"
+                           formControlName="cni"/>
+                    <div *ngIf="editForm.get('cni')!.invalid && (editForm.get('cni')!.dirty || editForm.get('cni')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cni')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_profession">Profession</label>
+                    <input type="text" class="form-control" name="profession" id="field_profession"
+                           formControlName="profession"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numeroCaisseSecurite">Numero Caisse Securite</label>
+                    <input type="text" class="form-control" name="numeroCaisseSecurite" id="field_numeroCaisseSecurite"
+                           formControlName="numeroCaisseSecurite"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numeroIpres">Numero Ipres</label>
+                    <input type="text" class="form-control" name="numeroIpres" id="field_numeroIpres"
+                           formControlName="numeroIpres"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_matricule">Matricule</label>
+                    <input type="text" class="form-control" name="matricule" id="field_matricule"
+                           formControlName="matricule"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_imageUrl">Image Url</label>
+                    <input type="text" class="form-control" name="imageUrl" id="field_imageUrl"
+                           formControlName="imageUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prenomPere">Prenom Pere</label>
+                    <input type="text" class="form-control" name="prenomPere" id="field_prenomPere"
+                           formControlName="prenomPere"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prenomMere">Prenom Mere</label>
+                    <input type="text" class="form-control" name="prenomMere" id="field_prenomMere"
+                           formControlName="prenomMere"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nomMere">Nom Mere</label>
+                    <input type="text" class="form-control" name="nomMere" id="field_nomMere"
+                           formControlName="nomMere"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_situationMatrimoniale">Situation Matrimoniale</label>
+                    <select class="form-control" name="situationMatrimoniale" formControlName="situationMatrimoniale" id="field_situationMatrimoniale">
+                        <option value="MARIER">MARIER</option>
+                        <option value="CELIBATAIRE">CELIBATAIRE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sexe">Sexe</label>
+                    <select class="form-control" name="sexe" formControlName="sexe" id="field_sexe">
+                        <option value="FEMME">FEMME</option>
+                        <option value="HOMME">HOMME</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_trimf">Trimf</label>
+                    <input type="text" class="form-control" name="trimf" id="field_trimf"
+                           formControlName="trimf"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_statut">Statut</label>
+                    <input type="text" class="form-control" name="statut" id="field_statut"
+                           formControlName="statut"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateEmbauche">Date Embauche</label>
+                    <div class="input-group">
+                        <input id="field_dateEmbauche" type="text" class="form-control" name="dateEmbauche" ngbDatepicker #dateEmbaucheDp="ngbDatepicker" formControlName="dateEmbauche"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEmbaucheDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nationalite">Nationalite</label>
+                    <input type="text" class="form-control" name="nationalite" id="field_nationalite"
+                           formControlName="nationalite"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_compteBanquaire">Compte Banquaire</label>
+                    <select class="form-control" id="field_compteBanquaire" name="compteBanquaire" formControlName="compteBanquaire">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="banqueEmployeOption.id === editForm.get('compteBanquaire')!.value?.id ? editForm.get('compteBanquaire')!.value : banqueEmployeOption" *ngFor="let banqueEmployeOption of comptebanquaires; trackBy: trackById">{{ banqueEmployeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_societe">Societe</label>
+                    <select class="form-control" id="field_societe" name="societe" formControlName="societe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="societeOption.id === editForm.get('societe')!.value?.id ? editForm.get('societe')!.value : societeOption" *ngFor="let societeOption of societes; trackBy: trackById">{{ societeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_poste">Poste</label>
+                    <select class="form-control" id="field_poste" name="poste" formControlName="poste">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="posteOption.id === editForm.get('poste')!.value?.id ? editForm.get('poste')!.value : posteOption" *ngFor="let posteOption of postes; trackBy: trackById">{{ posteOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
