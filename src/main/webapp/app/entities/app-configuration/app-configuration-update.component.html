@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-app-configuration-heading">Create or edit a App Configuration</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nomEntreprise">Nom Entreprise</label>
+                    <input type="text" class="form-control" name="nomEntreprise" id="field_nomEntreprise"
+                           formControlName="nomEntreprise"/>
+                    <div *ngIf="editForm.get('nomEntreprise')!.invalid && (editForm.get('nomEntreprise')!.dirty || editForm.get('nomEntreprise')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nomEntreprise')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                    <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresse')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                    <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telephone')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fixe">Fixe</label>
+                    <input type="text" class="form-control" name="fixe" id="field_fixe"
+                           formControlName="fixe"/>
+                    <div *ngIf="editForm.get('fixe')!.invalid && (editForm.get('fixe')!.dirty || editForm.get('fixe')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fixe')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ninea">Ninea</label>
+                    <input type="text" class="form-control" name="ninea" id="field_ninea"
+                           formControlName="ninea"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_logoUrl">Logo Url</label>
+                    <input type="text" class="form-control" name="logoUrl" id="field_logoUrl"
+                           formControlName="logoUrl"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

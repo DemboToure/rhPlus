@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="poste">
+            <h2><span>Poste</span> {{ poste.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nom</span></dt>
+                <dd>
+                    <span>{{ poste.nom }}</span>
+                </dd>
+                <dt><span>Nombre Requis</span></dt>
+                <dd>
+                    <span>{{ poste.nombreRequis }}</span>
+                </dd>
+                <dt><span>Service Entreprise</span></dt>
+                <dd>
+                    <div *ngIf="poste.serviceEntreprise">
+                        <a [routerLink]="['/service-entreprise', poste.serviceEntreprise?.id, 'view']">{{ poste.serviceEntreprise?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/poste', poste.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

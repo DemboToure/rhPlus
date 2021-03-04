@@ -1,0 +1,41 @@
+{
+  "name": "Contrat",
+  "fields": [
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "salaire",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "document",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employe",
+      "otherEntityRelationshipName": "contrats",
+      "relationshipName": "employe",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210304101842",
+  "entityTableName": "contrat",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

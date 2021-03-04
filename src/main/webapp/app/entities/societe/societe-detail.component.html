@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="societe">
+            <h2><span>Societe</span> {{ societe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nom</span></dt>
+                <dd>
+                    <span>{{ societe.nom }}</span>
+                </dd>
+                <dt><span>Adresse</span></dt>
+                <dd>
+                    <span>{{ societe.adresse }}</span>
+                </dd>
+                <dt><span>Telephone</span></dt>
+                <dd>
+                    <span>{{ societe.telephone }}</span>
+                </dd>
+                <dt><span>Fixe</span></dt>
+                <dd>
+                    <span>{{ societe.fixe }}</span>
+                </dd>
+                <dt><span>Ninea</span></dt>
+                <dd>
+                    <span>{{ societe.ninea }}</span>
+                </dd>
+                <dt><span>Logo Url</span></dt>
+                <dd>
+                    <span>{{ societe.logoUrl }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/societe', societe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

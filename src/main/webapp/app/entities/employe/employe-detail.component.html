@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employe">
+            <h2><span>Employe</span> {{ employe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Prenom</span></dt>
+                <dd>
+                    <span>{{ employe.prenom }}</span>
+                </dd>
+                <dt><span>Nom</span></dt>
+                <dd>
+                    <span>{{ employe.nom }}</span>
+                </dd>
+                <dt><span>Date Naissance</span></dt>
+                <dd>
+                    <span>{{ employe.dateNaissance }}</span>
+                </dd>
+                <dt><span>Lieu Naissance</span></dt>
+                <dd>
+                    <span>{{ employe.lieuNaissance }}</span>
+                </dd>
+                <dt><span>Cni</span></dt>
+                <dd>
+                    <span>{{ employe.cni }}</span>
+                </dd>
+                <dt><span>Profession</span></dt>
+                <dd>
+                    <span>{{ employe.profession }}</span>
+                </dd>
+                <dt><span>Numero Caisse Securite</span></dt>
+                <dd>
+                    <span>{{ employe.numeroCaisseSecurite }}</span>
+                </dd>
+                <dt><span>Numero Ipres</span></dt>
+                <dd>
+                    <span>{{ employe.numeroIpres }}</span>
+                </dd>
+                <dt><span>Matricule</span></dt>
+                <dd>
+                    <span>{{ employe.matricule }}</span>
+                </dd>
+                <dt><span>Image Url</span></dt>
+                <dd>
+                    <span>{{ employe.imageUrl }}</span>
+                </dd>
+                <dt><span>Prenom Pere</span></dt>
+                <dd>
+                    <span>{{ employe.prenomPere }}</span>
+                </dd>
+                <dt><span>Prenom Mere</span></dt>
+                <dd>
+                    <span>{{ employe.prenomMere }}</span>
+                </dd>
+                <dt><span>Nom Mere</span></dt>
+                <dd>
+                    <span>{{ employe.nomMere }}</span>
+                </dd>
+                <dt><span>Situation Matrimoniale</span></dt>
+                <dd>
+                    <span>{{ employe.situationMatrimoniale }}</span>
+                </dd>
+                <dt><span>Sexe</span></dt>
+                <dd>
+                    <span>{{ employe.sexe }}</span>
+                </dd>
+                <dt><span>Trimf</span></dt>
+                <dd>
+                    <span>{{ employe.trimf }}</span>
+                </dd>
+                <dt><span>Statut</span></dt>
+                <dd>
+                    <span>{{ employe.statut }}</span>
+                </dd>
+                <dt><span>Date Embauche</span></dt>
+                <dd>
+                    <span>{{ employe.dateEmbauche }}</span>
+                </dd>
+                <dt><span>Nationalite</span></dt>
+                <dd>
+                    <span>{{ employe.nationalite }}</span>
+                </dd>
+                <dt><span>Compte Banquaire</span></dt>
+                <dd>
+                    <div *ngIf="employe.compteBanquaire">
+                        <a [routerLink]="['/banque-employe', employe.compteBanquaire?.id, 'view']">{{ employe.compteBanquaire?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Societe</span></dt>
+                <dd>
+                    <div *ngIf="employe.societe">
+                        <a [routerLink]="['/societe', employe.societe?.id, 'view']">{{ employe.societe?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Poste</span></dt>
+                <dd>
+                    <div *ngIf="employe.poste">
+                        <a [routerLink]="['/poste', employe.poste?.id, 'view']">{{ employe.poste?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employe', employe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

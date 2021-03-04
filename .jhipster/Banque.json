@@ -1,0 +1,53 @@
+{
+  "name": "Banque",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "numeroCompte",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "codeBanque",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "codeGuichet",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cleRib",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "banqueEmploye",
+      "otherEntityRelationshipName": "banque",
+      "relationshipName": "compteEmployes"
+    }
+  ],
+  "changelogDate": "20210304101642",
+  "entityTableName": "banque",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

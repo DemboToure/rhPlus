@@ -1,0 +1,147 @@
+
+enum Sexe {
+	FEMME, HOMME
+}
+enum SituationMatrimoniale {
+	MARIER, CELIBATAIRE
+}
+
+entity AppConfiguration {
+	nomEntreprise String required,
+    adresse String required,
+    telephone String required,
+    fixe String required,
+    ninea String,
+    logoUrl String,
+}
+
+entity Societe {
+	nom String required,
+    adresse String required,
+    telephone String required,
+    fixe String required,
+    ninea String,
+    logoUrl String,
+}
+
+/**
+ * The Employe entity.
+ */
+entity Employe {
+	prenom String required,
+	nom String required,
+	dateNaissance LocalDate required,
+	lieuNaissance String required,
+    cni String required,
+    profession String,
+    numeroCaisseSecurite String,
+    numeroIpres String,
+    matricule String,
+    imageUrl String,
+    prenomPere String,
+    prenomMere String,
+    nomMere String,
+    situationMatrimoniale SituationMatrimoniale,
+    sexe Sexe,
+    trimf String,
+    statut String,
+	dateEmbauche LocalDate,
+    nationalite String
+}
+
+entity Enfant {
+	prenom String required,
+	nom String required,
+    dateNaissance LocalDate required,
+    lieuNaissance String required
+}
+
+entity Epoux {
+	prenom String required,
+	nom String required,
+    dateNaissance LocalDate required,
+    lieuNaissance String required
+}
+
+entity Banque {
+	nom String required,
+	numeroCompte String required,
+    codeBanque String required,
+    codeGuichet String,
+    cleRib String,
+}
+
+entity BanqueEmploye {
+	nom String required,
+	numeroCompte String required,
+    codeBanque String required,
+    codeGuichet String,
+    cleRib String,
+    pdfDomiciliation String,
+}
+
+entity Contrat {
+	dateDebut LocalDate,
+    dateFin LocalDate,
+    salaire Float,
+    document String,
+}
+
+entity ServiceEntreprise {
+	nom String,
+  	adresse String,
+  	tel String,
+  	responsable Integer,
+}
+
+entity Poste {
+	nom String,
+    nombreRequis Integer,
+}
+
+relationship OneToMany {
+	Societe{employes} to Employe{societe}
+}
+
+relationship OneToMany {
+	ServiceEntreprise{postes} to Poste{ServiceEntreprise}
+}
+
+relationship OneToMany {
+	Poste{employes} to Employe{poste}
+}
+
+relationship OneToMany {
+	Employe{contrats} to Contrat{employe},
+}
+
+relationship OneToMany {
+	Employe{enfants} to Enfant{employe},
+}
+
+//
+//relationship ManyToOne {
+//	Enfant{employe} to Employe,
+//}
+//
+
+relationship OneToMany {
+	Employe{epouxs} to Epoux{employe},
+}
+
+relationship OneToOne {
+	Employe{compteBanquaire} to BanqueEmploye{employe} ,
+}
+
+relationship OneToMany {
+	Banque{compteEmployes} to BanqueEmploye{banque} ,
+}
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

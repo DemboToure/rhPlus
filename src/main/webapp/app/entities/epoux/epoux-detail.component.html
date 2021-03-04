@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="epoux">
+            <h2><span>Epoux</span> {{ epoux.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Prenom</span></dt>
+                <dd>
+                    <span>{{ epoux.prenom }}</span>
+                </dd>
+                <dt><span>Nom</span></dt>
+                <dd>
+                    <span>{{ epoux.nom }}</span>
+                </dd>
+                <dt><span>Date Naissance</span></dt>
+                <dd>
+                    <span>{{ epoux.dateNaissance }}</span>
+                </dd>
+                <dt><span>Lieu Naissance</span></dt>
+                <dd>
+                    <span>{{ epoux.lieuNaissance }}</span>
+                </dd>
+                <dt><span>Employe</span></dt>
+                <dd>
+                    <div *ngIf="epoux.employe">
+                        <a [routerLink]="['/employe', epoux.employe?.id, 'view']">{{ epoux.employe?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/epoux', epoux.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

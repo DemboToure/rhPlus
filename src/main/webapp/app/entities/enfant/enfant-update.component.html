@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-enfant-heading">Create or edit a Enfant</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                    <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenom')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                    <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nom')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateNaissance">Date Naissance</label>
+                    <div class="input-group">
+                        <input id="field_dateNaissance" type="text" class="form-control" name="dateNaissance" ngbDatepicker #dateNaissanceDp="ngbDatepicker" formControlName="dateNaissance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateNaissance')!.invalid && (editForm.get('dateNaissance')!.dirty || editForm.get('dateNaissance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateNaissance')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lieuNaissance">Lieu Naissance</label>
+                    <input type="text" class="form-control" name="lieuNaissance" id="field_lieuNaissance"
+                           formControlName="lieuNaissance"/>
+                    <div *ngIf="editForm.get('lieuNaissance')!.invalid && (editForm.get('lieuNaissance')!.dirty || editForm.get('lieuNaissance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lieuNaissance')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_employe">Employe</label>
+                    <select class="form-control" id="field_employe" name="employe" formControlName="employe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeOption.id === editForm.get('employe')!.value?.id ? editForm.get('employe')!.value : employeOption" *ngFor="let employeOption of employes; trackBy: trackById">{{ employeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
